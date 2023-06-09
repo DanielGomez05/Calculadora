@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .calculator {
+            width: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .calculator input[type="text"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .calculator button {
+            width: 48%;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly="readonly">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>*</button>
+        <button>0</button>
+        <button>=</button>
+        <button>/</button>
+        <button>C</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var displayVal = '';
+
+            $('button').click(function() {
+                var btnVal = $(this).text();
+
+                if (btnVal === '=') {
+                    try {
+                        displayVal = eval(displayVal);
+                    } catch (e) {
+                        displayVal = 'Error';
+                    }
+                } else if (btnVal === 'C') {
+                    displayVal = '';
+                } else {
+                    displayVal += btnVal;
+                }
+
+                $('#display').val(displayVal);
+            });
+        });
+    </script>
+</body>
+</html>
+<!--
+
++ * / -
+
+/*C Concatenar unir cadenas 
+P contar palabras
+CH Contar cuantos caracteres
+B Busqueda
+
+Resultado abajo -->
